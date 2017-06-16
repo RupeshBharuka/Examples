@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+    
+    <bean id="animalId" class="zooparkapp.Animal" init-method="initAnimal">
+    	<property name="animalName" value="Cat"></property>
+    	<property name="animalAge" value="25"></property>
+    	<property name="animalWeight" value="45"></property>    	
+    </bean>
+    
+    <bean id="elephantId" class="zooparkapp.Elephant" parent="animalId" init-method="initElephant">
+    	<property name="animalName" value="Elephant"></property>
+    	<property name="animalWeight" value="100"></property>
+    	<property name="livingPlace" value="habitat"></property>
+    </bean>
+    
+</beans>  

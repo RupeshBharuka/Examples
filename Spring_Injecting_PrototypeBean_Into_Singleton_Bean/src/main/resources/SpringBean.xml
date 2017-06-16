@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- Implementation of Injecting a prototype bean into a singleton bean
+		 just to see what problem arises
+	-->
+	
+	
+	<!-- Singleton bean of RequestProcessor class -->
+	<bean id="requestProcessorId" class="com.agsft.RequestProcessor">
+		<property name="requestValidator" ref="requestValidatorId" />
+	</bean>
+	
+	<!-- 
+		Prototype bean of RequestValidator class.
+		Whenever we define scope as prototype, every time it creates a new instance of same type. 
+	-->
+	<bean id="requestValidatorId" class="com.agsft.RequestValidator" scope="prototype"/>
+	   
+</beans>

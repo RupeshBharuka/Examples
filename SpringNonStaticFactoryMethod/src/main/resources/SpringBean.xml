@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation="http://www.springframework.org/schema/beans
+	  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	  <!-- the factory bean, which contains a method called getInstance -->	   
+	  <bean id="pFactory" class="com.agsft.PrintableFactory"></bean>
+	    
+	  <!-- the bean to be created via the factory bean -->  
+  	  <bean id="p" class="com.agsft.PrintableFactory" factory-method="getInstance" factory-bean="pFactory"></bean>
+	  
+</beans>

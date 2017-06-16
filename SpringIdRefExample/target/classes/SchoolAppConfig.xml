@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation="http://www.springframework.org/schema/beans
+	  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="addressId" class="com.agsft.Address">
+		<property name="cityName" value="Pune"></property>
+		
+		
+	</bean>
+	
+	<bean id="studentId" class="com.agsft.Student">
+		<property name="studentName">
+			<idref bean="addressId"></idref>
+		</property>
+		
+		<property name="studentAddress" ref="addressId"></property>
+	</bean>
+</beans>

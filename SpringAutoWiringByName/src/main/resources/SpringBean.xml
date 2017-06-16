@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+	
+	<!-- 
+		Autowiring byName internally uses setter injection
+		Note: when we do autowiring byName, then id name of bean and reference name in class 
+			  has to be exactly same	 
+	-->
+	<!-- <bean id="booksCategoryId" class="com.schoolapp.BooksCategory" autowire="byName">
+		<property name="categoryName" value="Kids Books"></property>
+	</bean>
+	 -->
+	
+	<!-- 
+		 instead of name attribute we can use id attribute as well,
+	     still IoC will match the name exactly given to the id or name 
+	     attribute.
+	     
+	     Example : 
+	     <bean id="bookRef" class="com.schoolapp.Book">
+			<property name="bookName" value="Akbar Birbal"></property>
+			<property name="bookPrice" value="20"></property>
+		</bean>
+	-->
+	<!-- <bean name="bookRef" class="com.schoolapp.Book">
+		<property name="bookName" value="Akbar Birbal"></property>
+		<property name="bookPrice" value="20"></property>
+	</bean> -->
+	
+	
+	<!-- 
+		Autowiring byType internally uses setter injection
+		Note: 
+			1)when we do autowiring byType, then id of bean and reference name in class 
+			can be different. No need to have both of them as same similar to byName autowiring
+			
+			2)in case of autowiring byType you should not have multiple beans of same type. Than means 
+			if you create one more bean of type Book with different id then it will throw runtime exception	 
+	-->
+	<bean id="booksCategoryId" class="com.schoolapp.BooksCategory" autowire="byType">
+		<property name="categoryName" value="Kids Books"></property>
+	</bean>
+	
+	<!-- Note: id name of bean and reference name in class both are different -->
+	<bean id="br" class="com.schoolapp.Book">
+		<property name="bookName" value="Akbar Birbal"></property>
+		<property name="bookPrice" value="20"></property>
+	</bean>
+	
+</beans>
